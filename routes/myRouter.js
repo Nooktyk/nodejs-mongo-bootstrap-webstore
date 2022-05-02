@@ -6,7 +6,6 @@ const Product = require('../models/products')
 
 //อัพโหลดไฟล์
 const multer = require('multer')
-const res = require('express/lib/response')
 
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
@@ -103,9 +102,9 @@ router.post('/update',(req,res)=>{
 router.post('/login',(req,res)=>{
     const username = req.body.username
     const password = req.body.password
-    const timeexpire = 30000 // เก็บข้อมูล 30 วิ
+    const timeexpire = 60000 // เก็บข้อมูล 60 วิ
 
-    if(username === "admin" && password === "123"){
+    if(username === "nooktyk" && password === "nat123475"){
         // สร้าง session
         req.session.username = username
         req.session.password = password
@@ -113,7 +112,7 @@ router.post('/login',(req,res)=>{
         req.session.cookie.maxAge = timeexpire
         res.redirect('/manage')
     }else{
-        res.render('404')
+        res.render('admin')
     }
 })
     

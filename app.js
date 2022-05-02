@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const app = express()
 const router = require('./routes/myRouter')
-const port = process.env.PORT || 8080;
 
 app.set('views',path.join(__dirname,'views'))
 app.set('view engine','ejs')
